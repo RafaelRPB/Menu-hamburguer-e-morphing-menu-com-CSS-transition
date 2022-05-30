@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap'); /*import da fonte alternativa */
+
+body{
+    margin: 0;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    font-family: 'Comic Neue', sans-serif; /*"comic sans", bom a mais perto que achei no google pelo menos.*/;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(-45deg, rgb(58, 71, 252), rgb(30, 43, 230), rgb(5, 16, 156), rgb(21, 28, 124)); /*o linear-gradient permite colocar cores diferentes no local */
+    background-size: 400% 400%; /*isso garante que o background vai ser sempre maior que o local, preenchendo ela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: backgroundtransition 8s ease-in-out infinite; /*name (o nome da animação), duration (a duração total da animação), timing-function(o tempo que vai ocorrer as curvas de animação), delay (o delay do início da animação), iteration-count (o numero de repetições), direction (a localização da animação), fill-mode (define um estilo antes e depois da execução da animação, forward ou backward) */
+}
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    padding: 1rem 4rem;
+    border: 1px solid black;
+    min-width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s cubic-bezier(0.55, 0.025,0.675,0.97); /*faz uma animação de transição customizada nos botões da lista */
+}
+a:hover{
+    color: blue;
+    background-color: black;
+}
+
+@keyframes backgroundtransition { /*o comando para a keyframe é o @, não confunda */
+    0% { /*o 0% indica o início da animação, o momento em que ela esta 0% feita, indo até 100% */
+        background-position: 0% 80%; /*posiciona a background (o enorme "papel" de 400% de tamanho que fizemos anteriormente) para mostrar essa parte da cor */
+    }
+    50% {
+        background-position: 80% 100%;
+    }
+    100% {
+        background-position: 0% 90%;
+    }
+}

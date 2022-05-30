@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /*permite que nosso container centralise o nosso card no centro da tela do navegador */
+}
+.card {
+    height: 400px;
+    width: 500px;
+    background-image: url('./pexels-philippe-donn-1257860.jpg'); /*url do local da imagem, essa imagem, como o nome do arquivo sugere a fonte dessa imagem é o pexels e ela foi feita por Philippe Donn*/
+    background-position: center; /*centraliza a background com o card*/
+    background-repeat: no-repeat; /*faz com que a imagem não se repita caso ela seja menor que o card */
+    background-size: cover; /*faz com que a imagem alcance todo o espaço pretendido independente de seu tamanho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5); /*deixa a tela ligeiramente acinzentada*/
+    color: antiquewhite;
+    cursor: pointer; /*transforma o ponteiro do mouse na "mão apontando" ao passar por cima, sinalizando ao usuário a capacidade de clicar na tela no objeto.*/
+    transition: 0.3s; /*permite definir a transição de dois estados de elementos, como hover (quando passa o mouse por cima), foco, etc. isso anima a transição de um estado para o outro, é necessário colocar esse comando em cada estado, se esta linha estiver sozinha, ele vai fazer a transição de ida, mas não de volta */
+}
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /*para que fique tudo em colunas */
+    justify-content: center;
+    align-items: center;
+    position: relative; /*faz com que a posição fique sempre de acordo com o elemento absoluto, em outras palavras, fica relativo ao formato do card-wrapper */
+}
+.card-wrapper::before{
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0; /*torna o quadrado invisível, ja que ele não é utilizado nesse antes de selecionar*/
+    transition: 0.3s;
+}
+.card-wrapper h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    transition: 0.3s;
+}
+.card-wrapper p{
+    font-size: 0px;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.card:hover{
+    filter: unset; /*retira o acinzamento da tela de forma leve ao passar o mouse por cima*/
+}
+.card:hover >.card-wrapper::before{ /*anima o retangulo do card-wrapper quando o o card hover acontece, aumentando seu tamanho e tornando-o visível */
+    height: 300px;
+    width: 400px;
+    opacity: 1; /*lembrete que opacity 0 é invisível, 1 é visível, e não 100% como se poderia imaginar*/
+}
+.card:hover > .card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size: 14px; /*é importante colocar o tamanho desejado aqui e 0 no valor inicial para que as letras "animem" e cresçam em vez de simplesmente brotarem na tela, um pequeno flavor */
+}
